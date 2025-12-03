@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Plantive",
-    "slug": "Plantive",
+    "slug": "plantive",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -19,7 +19,8 @@
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
       },
       "edgeToEdgeEnabled": true,
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "package": "com.ashith07sorganization.plantive"
     },
     "web": {
       "output": "static",
@@ -43,6 +44,13 @@
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
-    }
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "66d6273a-9a0d-4cf3-ab9f-12de79726839"
+      }
+    },
+    "owner": "ashith07s-organization"
   }
 }
