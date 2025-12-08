@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Plantive",
-    "slug": "plantive",
+    "slug": "ashith",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -48,9 +48,9 @@
     "extra": {
       "router": {},
       "eas": {
-        "projectId": "66d6273a-9a0d-4cf3-ab9f-12de79726839"
+        "projectId": "c47f1231-b559-45e6-9144-ff9cc71f1c40"
       }
     },
-    "owner": "ashith07s-organization"
+    "owner": "ashith_07"
   }
 }
