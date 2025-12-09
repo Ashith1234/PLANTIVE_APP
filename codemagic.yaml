@@ -1,27 +1,2 @@
-workflows:
-  expo-android:
-    name: Build Expo Android APK & AAB
-    max_build_duration: 60
-    environment:
-      vars:
-        NODE_VERSION: "18.18.0"
-      node: $NODE_VERSION
-    scripts:
-      - name: Install dependencies
-        script: |
-          npm install --legacy-peer-deps
-          npm install -g eas-cli
 
-      - name: Build Android App (using EAS)
-        script: |
-          eas build --platform android --profile preview --non-interactive
 
-    artifacts:
-      - "**/*.apk"
-      - "**/*.aab"
-      - "dist/**"
-
-    publishing:
-      email:
-        recipients:
-          - "$CM_EMAIL"
