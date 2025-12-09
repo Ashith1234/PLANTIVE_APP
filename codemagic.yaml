@@ -1,25 +1,27 @@
 workflows:
-  expo-android:
-    name: Build Expo APK
+  android_apk:
+    name: Build Android APK (Expo prebuild)
     max_build_duration: 60
+    instance_type: linux_x2
+
     environment:
-      vars:
-        EXPO_TOKEN: $EXPO_TOKEN
-      node: latest
-      npm: latest
+      node: 20
+      npm: 10
+      java: 17
+
     scripts:
       - name: Install dependencies
         script: |
-          npm install
+          npm ci
 
-      - name: Build Expo Android APK
+      - name: Generate android project from Expo
         script: |
-          npx expo build:android -t apk --non-interactive
+          npx expo prebuild --platform android --non-interactive
+
+      - name: Build release APK with Gradle
+        script: |
+          cd android
+          ./gradlew assembleRelease
 
     artifacts:
-      - dist/*.apk
-
-    publishing:
-      email:
-        recipients:
-          - ashithaj4321@gmail.com
+      - android/app/build/outputs/**/*.apk
