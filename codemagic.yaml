@@ -1,27 +1,27 @@
 workflows:
-  android_apk:
-    name: Build Android APK (Expo prebuild)
+  expo-android:
+    name: Expo Android (EAS)
     max_build_duration: 60
-    instance_type: linux_x2
 
     environment:
-      node: 20
-      npm: 10
-      java: 17
+      node: latest
+      npm: latest
+      vars:
+        CI: "1"            # fixes "--non-interactive is not supported"
+        EXPO_TOKEN: Encrypted(EXPO_TOKEN)   # set this in Environment variables tab
 
     scripts:
-      - name: Install dependencies
-        script: |
-          npm ci
+      # 1. Install dependencies
+      - npm install
 
-      - name: Generate android project from Expo
-        script: |
-          npx expo prebuild --platform android --non-interactive
+      # 2. Install EAS CLI (if not already in devDependencies)
+      - npm install -g eas-cli
 
-      - name: Build release APK with Gradle
-        script: |
-          cd android
-          ./gradlew assembleRelease
+      # 3. Build Android app with EAS
+      - eas build --platform android --profile preview
 
     artifacts:
-      - android/app/build/outputs/**/*.apk
+      # Codemagic will automatically collect build artifacts,
+      # this is just a fallback – keep it as is
+      - "**/*.apk"
+      - "**/*.aab"
