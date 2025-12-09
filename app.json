@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Plantive",
-    "slug": "ashith",
+    "slug": "appp01",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -48,7 +48,7 @@
     "extra": {
       "router": {},
       "eas": {
-        "projectId": "c47f1231-b559-45e6-9144-ff9cc71f1c40"
+        "projectId": "3741879a-8d90-4e8f-af61-08972d7aa78d"
       }
     },
     "owner": "ashith_07"
